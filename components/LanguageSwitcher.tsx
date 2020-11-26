@@ -4,13 +4,14 @@ import { useRouter } from 'next/router';
 
 const LanguageSwitcher = (props: any) => {
     const router = useRouter();
-    const { locale, locales, pathname } = router;
+    const { locale, locales, pathname, query } = router;
+    //console.log('pathname: ', pathname, query);
 
-    //console.log('pathname: ', pathname);
+    const path = query.product ? `/${query.product.toString()}` : pathname;
 
     return <>
         {locales?.map(x => <p key={x}>
-            <Link href={pathname} locale={x}>
+            <Link href={path} locale={x}>
                 <a className={locale === x ? 'active' : ''}>{x}</a>
             </Link>
         </p>)}
