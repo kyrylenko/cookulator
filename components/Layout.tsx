@@ -1,6 +1,6 @@
 import React from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
-//import Link from 'next/link';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/Home.module.css';
 
@@ -10,6 +10,7 @@ const Layout = (props: any) => {
 
     return <div className={styles.container}>
         <header>
+            <Link href='/about'><a>About</a></Link>
             <LanguageSwitcher />
         </header>
         <main className={styles.main}>
