@@ -1,16 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import Values from '../components/Values';
 import products, { getProduct } from '../services/products';
 
 const Product = (props: any) => {
     const { product } = props;
-    //console.log('product: ', product);
+    //console.log('props: ', props);
     return <Layout>
         <div style={{ textAlign: 'center' }}>
-            <span>{product.name}</span>
-            <span>-{product.glass}-</span>
-            <span>{product.spoon}</span>
+            <h1>{product.name}</h1>
 
             <ul>
                 {Object.keys(products).map(p => <li key={p}>
@@ -18,13 +17,17 @@ const Product = (props: any) => {
                 </li>)}
             </ul>
 
+            <div>{`1 glass = ${product.glass} g`}</div>
+
+            <Values product={product} />
+
             <Link href='/'>
                 <a>Back to home</a>
             </Link>
         </div>
     </Layout>
 }
-
+//ref: https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages
 export function getStaticPaths({ locales }: { locales: Array<string> }) {
     const paths = locales.flatMap((locale: string) => {
         return Object.keys(products).map(product => ({
@@ -46,10 +49,7 @@ export function getStaticProps({ params }: { params: any }) {
     //console.log('params:   ', params);
     return {
         props: {
-            product: {
-                name: product,
-                ...getProduct(product)
-            },
+            product: getProduct(product),
         },
     }
 }
