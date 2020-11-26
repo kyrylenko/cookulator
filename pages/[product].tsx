@@ -41,9 +41,9 @@ export function getStaticPaths({ locales }: { locales: Array<string> }) {
     }
 }
 
-export function getStaticProps({ params, locale }: { params: any, locale: string }) {
+export function getStaticProps({ params }: { params: any }) {
     const { product } = params;
-    //console.log('product:   ', product, getProduct(product));
+    //console.log('params:   ', params);
     return {
         props: {
             product: {
