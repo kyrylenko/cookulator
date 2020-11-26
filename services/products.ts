@@ -2,12 +2,8 @@ interface IProduct {
     glass: number;
     spoon: number;
 }
-const products: { [key: string]: IProduct} = {};
 
-products['sugar'] = { glass: 300, spoon: 18 };
-products['flour'] = { glass: 180, spoon: 12 };
-products['salt'] = { glass: 350, spoon: 20 };
-/* const products = {
+const products: Record<string, IProduct> = {
     sugar: {
         glass: 300,
         spoon: 18,
@@ -20,7 +16,7 @@ products['salt'] = { glass: 350, spoon: 20 };
         glass: 350,
         spoon: 20,
     },
-}; */
+};
 
 export const getProduct = (key: string) => {
     return products[key];
