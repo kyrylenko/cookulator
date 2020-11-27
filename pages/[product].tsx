@@ -8,12 +8,14 @@ import products, { getProduct } from '../services/products';
 
 const Product = (props: any) => {
     const router = useRouter();
-    const { locales } = router;
+    const { locales, defaultLocale } = router;
     const { product } = props;
 
     return <Layout>
         <Head>
-            {locales?.map(x => <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${x}/${product.name}`} key={x} />)}
+            {locales?.map(x => x === defaultLocale
+                ? <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${product.name}`} key={x} />
+                : <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${x}/${product.name}`} key={x} />)}
             <title>{product.name}</title>
         </Head>
 
