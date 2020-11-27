@@ -2,9 +2,9 @@ import React from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Layout.module.css';
 
-const Layout = (props: any) => {
+const Layout = ({ children }: any) => {
     const router = useRouter();
     const { locale, locales, pathname } = router;
 
@@ -14,7 +14,7 @@ const Layout = (props: any) => {
             <LanguageSwitcher />
         </header>
         <main className={styles.main}>
-            {props.children}
+            {children}
         </main>
         <footer className={styles.footer}>
             <a

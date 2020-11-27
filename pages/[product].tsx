@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import Values from '../components/Values';
 import products, { getProduct } from '../services/products';
@@ -8,6 +9,10 @@ const Product = (props: any) => {
     const { product } = props;
     //console.log('props: ', props);
     return <Layout>
+        <Head>
+            <title>{product.name}</title>
+        </Head>
+
         <div style={{ textAlign: 'center' }}>
             <h1>{product.name}</h1>
 
