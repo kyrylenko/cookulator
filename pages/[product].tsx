@@ -1,15 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import Values from '../components/Values';
 import products, { getProduct } from '../services/products';
 
 const Product = (props: any) => {
+    const router = useRouter();
+    const { locales } = router;
     const { product } = props;
-    //console.log('props: ', props);
+
     return <Layout>
         <Head>
+            {locales?.map(x => <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${x}/${product.name}`} key={x} />)}
             <title>{product.name}</title>
         </Head>
 
