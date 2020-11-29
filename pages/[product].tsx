@@ -5,18 +5,21 @@ import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import Values from '../components/Values';
 import products, { getProduct } from '../services/products';
+import IProduct from '../types/IProduct';
+
+export const siteTitle = 'grams in glasses'
 
 const Product = (props: any) => {
     const router = useRouter();
     const { locales, defaultLocale } = router;
-    const { product } = props;
+    const { product }: { product: IProduct } = props;
 
-    return <Layout>
+    return <Layout title={`${siteTitle}: ${product.name}`}>
         <Head>
             {locales?.map(x => x === defaultLocale
                 ? <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${product.name}`} key={x} />
-                : <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${x}/${product.name}`} key={x} />)}
-            <title>{product.name}</title>
+                : <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${x}/${product.name}`} key={x} />)}            
+            <title>{`${siteTitle}: ${product.name}`}</title>
         </Head>
 
         <div style={{ textAlign: 'center' }}>
