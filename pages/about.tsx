@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Layout from '../components/Layout';
 import data from '../services/data';
 
@@ -9,10 +8,6 @@ const About = (props: any) => {
     return <Layout>
         <div style={{ textAlign: 'center' }}>
             <h2>{data.title}</h2>
-            <h3>{data.content}</h3>
-            <Link href='/'>
-                <a>Back to home</a>
-            </Link>
         </div>
     </Layout>
 }

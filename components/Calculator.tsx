@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../styles/Calculator.module.css';
 import IProduct from '../types/IProduct';
 
-const Values = ({ product }: { product: IProduct }) => {
+const Calculator = ({ product }: { product: IProduct }) => {
     //console.log('product: ', product);
     /* useEffect(() => {
         setValue(product.glass);
@@ -13,7 +14,7 @@ const Values = ({ product }: { product: IProduct }) => {
         setValue(e.target.value);
     };
 
-    return <div style={{ marginTop: '30px', marginBottom: '30px' }}>
+    return <div className={styles.container}>
         <div>
             <span>{value} g</span>
             <span> = </span>
@@ -33,4 +34,4 @@ const Values = ({ product }: { product: IProduct }) => {
     </div>
 }
 
-export default Values;
+export default Calculator;

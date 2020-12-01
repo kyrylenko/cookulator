@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
-import Values from '../components/Values';
+import Values from '../components/Calculator';
 import products, { getProduct } from '../services/products';
 import IProduct from '../types/IProduct';
 
@@ -17,28 +17,20 @@ const Product = (props: any) => {
     return <Layout title={`${siteTitle}: ${product.name}`}>
         <Head>
             {locales?.map(x => x === defaultLocale
-                ? <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${product.name}`} key={x} />
-                : <link rel='alternate' hrefLang={x} href={`http://localhost:3000/${x}/${product.name}`} key={x} />)}            
+                ? <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${product.name}`} key={x} />
+                : <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${x}/${product.name}`} key={x} />)}
             <title>{`${siteTitle}: ${product.name}`}</title>
-        </Head>
+        </Head>        
 
-        <div style={{ textAlign: 'center' }}>
-            <h1>{product.name}</h1>
+        <ul>
+            {Object.keys(products).map(p => <li key={p}>
+                <Link href={`/${p}`}><a>{p}</a></Link>
+            </li>)}
+        </ul>
 
-            <ul>
-                {Object.keys(products).map(p => <li key={p}>
-                    <Link href={`/${p}`}><a>{p}</a></Link>
-                </li>)}
-            </ul>
+        <div>{`1 glass = ${product.glass} g`}</div>
 
-            <div>{`1 glass = ${product.glass} g`}</div>
-
-            <Values product={product} />
-
-            <Link href='/'>
-                <a>Back to home</a>
-            </Link>
-        </div>
+        <Values product={product} />        
     </Layout>
 }
 //ref: https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages
