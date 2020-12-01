@@ -28,7 +28,7 @@ const Product = (props: any) => {
             </li>)}
         </ul>
 
-        <div>{`1 glass = ${product.glass} g`}</div>
+        <div>{`${product.glass} g = 1 glass`}</div>
 
         <Values product={product} />        
     </Layout>
