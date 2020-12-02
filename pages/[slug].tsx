@@ -31,9 +31,9 @@ const Product = ({ product }: { product: IProduct }) => {
 //ref: https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages
 export function getStaticPaths({ locales }: { locales: Array<string> }) {
     const paths = locales.flatMap((locale: string) => {
-        return Object.keys(products).map(product => ({
+        return Object.keys(products).map(slug => ({
             params: {
-                product,
+                slug,
             },
             locale: locale
         }))
@@ -45,12 +45,12 @@ export function getStaticPaths({ locales }: { locales: Array<string> }) {
     }
 }
 
-export function getStaticProps({ params }: { params: any }) {
-    const { product } = params;
-    //console.log('params:   ', params);
+export function getStaticProps({ params, locale }: { params: any, locale: string }) {
+    const { slug } = params;
+    console.log('params:   ', params, locale);
     return {
         props: {
-            product: getProduct(product),
+            product: getProduct(slug),
         },
     }
 }
