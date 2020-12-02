@@ -21,7 +21,7 @@ const Layout = ({ children, title }: any) => {
             <meta name='og:title' content={title} />
             <meta name='twitter:card' content='summary_large_image' />
         </Head>
-        <header>
+        <header className={styles.header}>
             <h1>{title}</h1>
         </header>
         <main className={styles.main}>

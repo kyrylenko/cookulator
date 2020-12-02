@@ -9,10 +9,9 @@ import ProductSelect from '../components/ProductSelect';
 
 export const siteTitle = 'grams in glasses';
 
-const Product = (props: any) => {
+const Product = ({ product }: { product: IProduct }) => {
     const router = useRouter();
     const { locales, defaultLocale } = router;
-    const { product }: { product: IProduct } = props;
 
     return <Layout title={`${siteTitle}: ${product.name}`}>
         <Head>
