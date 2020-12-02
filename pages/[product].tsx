@@ -1,13 +1,13 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import Values from '../components/Calculator';
 import products, { getProduct } from '../services/products';
 import IProduct from '../types/IProduct';
+import ProductSelect from '../components/ProductSelect';
 
-export const siteTitle = 'grams in glasses'
+export const siteTitle = 'grams in glasses';
 
 const Product = (props: any) => {
     const router = useRouter();
@@ -20,17 +20,13 @@ const Product = (props: any) => {
                 ? <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${product.name}`} key={x} />
                 : <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${x}/${product.name}`} key={x} />)}
             <title>{`${siteTitle}: ${product.name}`}</title>
-        </Head>        
+        </Head>
 
-        <ul>
-            {Object.keys(products).map(p => <li key={p}>
-                <Link href={`/${p}`}><a>{p}</a></Link>
-            </li>)}
-        </ul>
+        <ProductSelect selectedProduct={product.name} />
 
-        <div>{`1 glass = ${product.glass} g`}</div>
+        <div>{`${product.glass} g = 1 glass`}</div>
 
-        <Values product={product} />        
+        <Values product={product} />
     </Layout>
 }
 //ref: https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages
