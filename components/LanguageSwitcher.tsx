@@ -9,7 +9,7 @@ const LanguageSwitcher = (props: any) => {
 
     const handleChange = (e: any) => router.push(path, path, { locale: e.target.value });
 
-    return <select role='navigation' onChange={handleChange} defaultValue={locale}>
+    return <select role='navigation' onChange={handleChange} defaultValue={locale} className='select-css'>
         {locales?.map(x => <option key={x} value={x} lang={x}>{x}</option>)}
     </select>
 }
