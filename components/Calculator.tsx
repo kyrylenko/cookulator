@@ -3,10 +3,10 @@ import styles from '../styles/Calculator.module.css';
 import IProduct from '../types/IProduct';
 
 const Calculator = ({ product }: { product: IProduct }) => {
-    //console.log('product: ', product);
-    /* useEffect(() => {
+
+    useEffect(() => {
         setValue(product.glass);
-    }, [product.glass]) */
+    }, [product.glass])
 
     const [value, setValue] = useState(product.glass);
 

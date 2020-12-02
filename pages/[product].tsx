@@ -1,30 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Select from 'react-select';
 import Layout from '../components/Layout';
 import Values from '../components/Calculator';
 import products, { getProduct } from '../services/products';
 import IProduct from '../types/IProduct';
+import ProductSelect from '../components/ProductSelect';
 
 export const siteTitle = 'grams in glasses';
 
-const options = Object.keys(products).map(p => ({ value: p, label: p }));
-
-const customStyles = {
-    container: () => ({
-        width: '90%',
-        position: 'relative',
-        boxSizing: 'border-box'
-    }),
-}
-
 const Product = (props: any) => {
     const router = useRouter();
-    const { locale, locales, defaultLocale } = router;
+    const { locales, defaultLocale } = router;
     const { product }: { product: IProduct } = props;
-
-    const handleChange = (option: any) => router.push(option.value, option.value, { locale: locale });
 
     return <Layout title={`${siteTitle}: ${product.name}`}>
         <Head>
@@ -34,15 +22,7 @@ const Product = (props: any) => {
             <title>{`${siteTitle}: ${product.name}`}</title>
         </Head>
 
-        <Select
-            instanceId='product-list'
-            name='product-list'
-            isSearchable={true}
-            styles={customStyles}
-            onChange={handleChange}
-            options={options}
-            defaultValue={{ value: product.name, label: product.name }}
-        />
+        <ProductSelect selectedProduct={product.name} />
 
         <div>{`${product.glass} g = 1 glass`}</div>
 
