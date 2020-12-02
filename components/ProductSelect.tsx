@@ -1,4 +1,5 @@
 import React from 'react';
+//@ts-ignore
 import Select from 'react-select';
 import { useRouter } from 'next/router';
 import products from '../services/products';
