@@ -7,7 +7,6 @@ import { useTranslation } from '../hooks';
 
 console.log('ProductSelect: above component');
 
-
 const customStyles = {
     container: () => ({
         width: '90%',
@@ -19,7 +18,6 @@ const customStyles = {
 const ProductSelect = ({ selectedProduct }: { selectedProduct?: string }) => {
     const router = useRouter();
     const { locale } = router;
-
     const { t } = useTranslation();
     const options = Object.keys(products).map(p => ({ value: p, label: t(p) }));
 
@@ -28,6 +26,7 @@ const ProductSelect = ({ selectedProduct }: { selectedProduct?: string }) => {
     console.log('ProductSelect: render, options: ', options);
 
     return <Select
+        key={locale}//key is needed to force Select re-render on locale change
         instanceId='product-list'
         name='product-list'
         styles={customStyles}
