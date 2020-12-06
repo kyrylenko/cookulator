@@ -3,7 +3,6 @@ import translations from './trabslations.json';
 
 export function useTranslation() {
     const router = useRouter();
-    //const { locale }: {locale: string} = router;
     const { locale } = router;
 
     return {

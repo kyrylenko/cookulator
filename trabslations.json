@@ -4,20 +4,26 @@
     "flour": "flour",
     "salt": "salt",
     "glass": "glass",
-    "gram": "gram"
+    "gram": "gram",
+    "grams-in-glasses": "grams in glasses",
+    "g": "g"
   },
   "ru": {
     "sugar": "сахар",
     "flour": "мука",
     "salt": "соль",
     "glass": "стакан",
-    "gram": "грамм"
+    "gram": "грамм",
+    "grams-in-glasses": "граммы в стаканах",
+    "g": "г"
   },
   "uk": {
     "sugar": "цукор",
     "flour": "борошно",
     "salt": "сіль",
     "glass": "склянка",
-    "gram": "грам"
+    "gram": "грам",
+    "grams-in-glasses": "грами в склянках",
+    "g": "г"
   }
 }

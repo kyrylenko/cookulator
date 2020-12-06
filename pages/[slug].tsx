@@ -8,25 +8,23 @@ import IProduct from '../types/IProduct';
 import ProductSelect from '../components/ProductSelect';
 import { useTranslation } from '../hooks';
 
-export const siteTitle = 'grams in glasses';
-
 const Product = ({ product }: { product: IProduct }) => {
     const router = useRouter();
     const { t } = useTranslation();
     
     const { locales, defaultLocale } = router;
 
-    return <Layout title={`${siteTitle}: ${product.name}`}>
+    return <Layout title={`${t('grams-in-glasses')}: ${t(product.name)}`}>
         <Head>
             {locales?.map(x => x === defaultLocale
                 ? <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${product.name}`} key={x} />
                 : <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${x}/${product.name}`} key={x} />)}
-            <title>{`${siteTitle}: ${product.name}`}</title>
+            <title>{`${t('grams-in-glasses')}: ${t(product.name)}`}</title>
         </Head>
 
         <ProductSelect selectedProduct={product.name} />
 
-        <div>{`${product.glass} g = 1 ${t('gram')}`}</div>
+        <div>{`${product.glass} ${t('g')} = 1 ${t('glass')}`}</div>
 
         <Values product={product} />
     </Layout>
@@ -41,7 +39,7 @@ export function getStaticPaths({ locales }: { locales: Array<string> }) {
             locale: locale
         }))
     });
-    //console.log('paths: ', paths);
+
     return {
         paths: paths,
         fallback: false
