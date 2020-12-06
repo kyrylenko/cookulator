@@ -1,0 +1,23 @@
+{
+  "en": {
+    "sugar": "sugar",
+    "flour": "flour",
+    "salt": "salt",
+    "glass": "glass",
+    "gram": "gram"
+  },
+  "ru": {
+    "sugar": "сахар",
+    "flour": "мука",
+    "salt": "соль",
+    "glass": "стакан",
+    "gram": "грамм"
+  },
+  "uk": {
+    "sugar": "цукор",
+    "flour": "борошно",
+    "salt": "сіль",
+    "glass": "склянка",
+    "gram": "грам"
+  }
+}

@@ -6,11 +6,14 @@ import Values from '../components/Calculator';
 import products, { getProduct } from '../services/products';
 import IProduct from '../types/IProduct';
 import ProductSelect from '../components/ProductSelect';
+import { useTranslation } from '../hooks';
 
 export const siteTitle = 'grams in glasses';
 
 const Product = ({ product }: { product: IProduct }) => {
     const router = useRouter();
+    const { t } = useTranslation();
+    
     const { locales, defaultLocale } = router;
 
     return <Layout title={`${siteTitle}: ${product.name}`}>
@@ -23,7 +26,7 @@ const Product = ({ product }: { product: IProduct }) => {
 
         <ProductSelect selectedProduct={product.name} />
 
-        <div>{`${product.glass} g = 1 glass`}</div>
+        <div>{`${product.glass} g = 1 ${t('gram')}`}</div>
 
         <Values product={product} />
     </Layout>
@@ -47,7 +50,7 @@ export function getStaticPaths({ locales }: { locales: Array<string> }) {
 
 export function getStaticProps({ params, locale }: { params: any, locale: string }) {
     const { slug } = params;
-    console.log('params:   ', params, locale);
+    //console.log('params:   ', params, locale);
     return {
         props: {
             product: getProduct(slug),
