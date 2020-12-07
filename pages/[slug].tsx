@@ -11,15 +11,16 @@ import { useTranslation } from '../hooks';
 const Product = ({ product }: { product: IProduct }) => {
     const router = useRouter();
     const { t } = useTranslation();
-    
     const { locales, defaultLocale } = router;
+    const title = `${t('grams-in-glasses')}: ${t(product.name)}`;
 
-    return <Layout title={`${t('grams-in-glasses')}: ${t(product.name)}`}>
+    return <Layout title={title}>
+        <h1>{title}</h1>
         <Head>
             {locales?.map(x => x === defaultLocale
                 ? <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${product.name}`} key={x} />
                 : <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${x}/${product.name}`} key={x} />)}
-            <title>{`${t('grams-in-glasses')}: ${t(product.name)}`}</title>
+            <title>{title}</title>
         </Head>
 
         <ProductSelect selectedProduct={product.name} />

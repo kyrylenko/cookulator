@@ -6,7 +6,8 @@
     "glass": "glass",
     "gram": "gram",
     "grams-in-glasses": "grams in glasses",
-    "g": "g"
+    "g": "g",
+    "select-ingredient": "select an ingredient"
   },
   "ru": {
     "sugar": "сахар",
@@ -15,7 +16,8 @@
     "glass": "стакан",
     "gram": "грамм",
     "grams-in-glasses": "граммы в стаканах",
-    "g": "г"
+    "g": "г",
+    "select-ingredient": "выберите ингредиент"
   },
   "uk": {
     "sugar": "цукор",
@@ -24,6 +26,7 @@
     "glass": "склянка",
     "gram": "грам",
     "grams-in-glasses": "грами в склянках",
-    "g": "г"
+    "g": "г",
+    "select-ingredient": "оберіть інгредієнт"
   }
 }

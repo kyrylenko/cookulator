@@ -19,17 +19,16 @@ const Layout = ({ children, title }: any) => {
                 )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
             /> */}
             <meta name='og:title' content={title} />
-            <meta name='twitter:card' content='summary_large_image' />
+            {/* <meta name='twitter:card' content='summary_large_image' /> */}
         </Head>
         <header className={styles.header}>
-            <h1>{title}</h1>
+            
         </header>
         <main className={styles.main}>
             {children}
         </main>
         <footer className={styles.footer}>
-            <Link href='/'><a>Back to home</a></Link>
-            <Link href='/about'><a>About</a></Link>
+            <Link href='/'><a>Home</a></Link>
             <LanguageSwitcher />
         </footer>
     </div>
