@@ -1,10 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import LanguageSwitcher from './LanguageSwitcher';
 import Link from 'next/link';
 import styles from '../styles/Layout.module.css';
 
 const Layout = ({ children, title }: any) => {
+    const router = useRouter();
+    const { asPath } = router;
+
     return <div className={styles.container}>
         <Head>
             <link rel='icon' href='/favicon.ico' />
@@ -22,8 +26,8 @@ const Layout = ({ children, title }: any) => {
             {/* <meta name='twitter:card' content='summary_large_image' /> */}
         </Head>
         <header className={styles.header}>
-            <Link href='/'><a>Home</a></Link>
             <LanguageSwitcher />
+            {asPath !== '/' && <Link href='/'><a>Home</a></Link>}
         </header>
         <main className={styles.main}>
             {children}
