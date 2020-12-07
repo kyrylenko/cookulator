@@ -22,15 +22,15 @@ const Layout = ({ children, title }: any) => {
             {/* <meta name='twitter:card' content='summary_large_image' /> */}
         </Head>
         <header className={styles.header}>
-            
+            <Link href='/'><a>Home</a></Link>
+            <LanguageSwitcher />
         </header>
         <main className={styles.main}>
             {children}
         </main>
-        <footer className={styles.footer}>
-            <Link href='/'><a>Home</a></Link>
-            <LanguageSwitcher />
-        </footer>
+        {/* <footer className={styles.footer}>
+
+        </footer> */}
     </div>
 }
 

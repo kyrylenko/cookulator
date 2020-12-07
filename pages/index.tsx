@@ -18,7 +18,7 @@ const Home = () => {
     </Head>
 
     <Layout title={t('grams-in-glasses')}>
-      <h1>{t('select-ingredient')}</h1>
+      <h1 className='main-title'>{t('select-ingredient')}</h1>
       <ProductSelect />
     </Layout>
   </>

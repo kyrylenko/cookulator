@@ -4,14 +4,7 @@ import Select from 'react-select';
 import { useRouter } from 'next/router';
 import products from '../services/products';
 import { useTranslation } from '../hooks';
-
-const customStyles = {
-    container: () => ({
-        width: '90%',
-        position: 'relative',
-        boxSizing: 'border-box'
-    }),
-}
+import styles from '../styles/ProductSelect.module.css';
 
 const ProductSelect = ({ selectedProduct }: { selectedProduct?: string }) => {
     const router = useRouter();
@@ -23,9 +16,9 @@ const ProductSelect = ({ selectedProduct }: { selectedProduct?: string }) => {
 
     return <Select
         key={locale}//key is needed to force Select re-render on locale change
-        instanceId='product-list'
-        name='product-list'
-        styles={customStyles}
+        className={styles.productselect}
+        instanceId='product-select'
+        name='product-select'
         onChange={handleChange}
         options={options}
         defaultValue={selectedProduct ? { value: selectedProduct, label: t(selectedProduct) } : undefined}

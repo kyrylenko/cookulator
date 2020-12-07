@@ -1,0 +1,9 @@
+.productselect {
+  width: 350px;
+}
+
+@media (max-width: 600px) {
+  .productselect {
+    width: 300px;
+  }
+}

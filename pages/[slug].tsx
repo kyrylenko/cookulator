@@ -15,7 +15,7 @@ const Product = ({ product }: { product: IProduct }) => {
     const title = `${t('grams-in-glasses')}: ${t(product.name)}`;
 
     return <Layout title={title}>
-        <h1>{title}</h1>
+        <h1 className='main-title'>{title}</h1>
         <Head>
             {locales?.map(x => x === defaultLocale
                 ? <link rel='alternate' hrefLang={x} href={`https://cookulator.vercel.app/${product.name}`} key={x} />

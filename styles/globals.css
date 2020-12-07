@@ -18,3 +18,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.main-title {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .main-title {
+    font-size: 1.5rem;
+  }
+}
