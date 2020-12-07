@@ -16,7 +16,7 @@ const Calculator = ({ product }: { product: IProduct }) => {
     const { t } = useTranslation();
 
     return <div className={styles.container}>
-        <h3>{`${value} ${t('g')} = ${(value / product.glass).toFixed(2)} glasses`}</h3>
+        <strong>{`${value} ${t('g')} = ${(value / product.glass).toFixed(2)} glasses`}</strong>
         <input type='range'
             style={{ margin: '10px' }}
             id='grams'

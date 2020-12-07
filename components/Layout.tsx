@@ -32,9 +32,10 @@ const Layout = ({ children, title }: any) => {
         <main className={styles.main}>
             {children}
         </main>
-        {/* <footer className={styles.footer}>
-
-        </footer> */}
+        <footer className={styles.footer}>
+            <small><a target='_blank' rel='noopener noreferrer' href='mailto:contact@monotones.app'>contact us</a></small>
+            <small>&copy; 2020 pak</small>
+        </footer>
     </div>
 }
 

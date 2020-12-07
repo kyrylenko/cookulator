@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
-import Values from '../components/Calculator';
+import Calculator from '../components/Calculator';
 import products, { getProduct } from '../services/products';
 import IProduct from '../types/IProduct';
 import ProductSelect from '../components/ProductSelect';
@@ -27,7 +27,7 @@ const Product = ({ product }: { product: IProduct }) => {
 
         <div>{`${product.glass} ${t('g')} = 1 ${t('glass')}`}</div>
 
-        <Values product={product} />
+        <Calculator product={product} />
     </Layout>
 }
 //ref: https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages
