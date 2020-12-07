@@ -29,7 +29,7 @@ const Calculator = ({ product }: { product: IProduct }) => {
             min={10}
             max={product.glass * 3}
             step={10}
-            autoFocus={true}
+            //autoFocus={true}
             onChange={handleChange}>
         </input>
     </div>
