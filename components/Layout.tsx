@@ -14,7 +14,7 @@ const Layout = ({ children, title }: any) => {
             <link rel='icon' href='/favicon.ico' />
             <meta
                 name='description'
-                content='Learn how to build a personal website using Next.js'
+                content='Grams in glasses or grams on spoons'
             />
             {/* <meta
                 property='og:image'
@@ -33,7 +33,7 @@ const Layout = ({ children, title }: any) => {
             {children}
         </main>
         <footer className={styles.footer}>
-            <small><a target='_blank' rel='noopener noreferrer' href='mailto:contact@monotones.app'>contact us</a></small>
+            <small><a target='_blank' rel='noopener noreferrer' href='mailto:kirilenko.pavlo@gmail.com'>contact us</a></small>
             <small>&copy; 2020 pak</small>
         </footer>
     </div>
