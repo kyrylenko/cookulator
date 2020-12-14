@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 //@ts-ignore
 import Select from 'react-select';
 import { useRouter } from 'next/router';
@@ -10,7 +10,8 @@ const ProductSelect = ({ selectedProduct }: { selectedProduct?: string }) => {
     const router = useRouter();
     const { locale } = router;
     const { t } = useTranslation();
-    const options = Object.keys(products).map(p => ({ value: p, label: t(p) }));
+    //caching the built value of options by useMemo https://app.pluralsight.com/course-player?clipId=bcc762de-e49c-4ddd-9658-d29f4f8ebe29
+    const options = useMemo(() => Object.keys(products).map(p => ({ value: p, label: t(p) })), [locale]);
 
     const handleChange = (option: any) => router.push(option.value, option.value, { locale: locale });
 
